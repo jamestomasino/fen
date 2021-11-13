@@ -41,6 +41,18 @@ sample_game_1_output = "\
 ♟ ♟ ♟ . . . ♟ ♟\n\
 ♜ . ♝ ♛ . ♜ ♚ ."
 
+# puzzle 1
+pos_puzzle_1 = "5r2/8/1R6/ppk3p1/2N3P1/P4b2/1K6/5B2 w - - 0 1"
+puzzle_1_output = "\
+. . . . . ♖ . .\n\
+. . . . . . . .\n\
+. ♜ . . . . . .\n\
+♙ ♙ ♔ . . . ♙ .\n\
+. . ♞ . . . ♟ .\n\
+♟ . . . . ♗ . .\n\
+. ♚ . . . . . .\n\
+. . . . . ♝ . ."
+
 # Invalid formatted FEN
 pos_invalid = "rnbqkbnr/pppmpppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1"
 
@@ -51,6 +63,7 @@ def test_start():
     assert convert(pos_start) == start_output
     assert convert(pos_e4) == e4_output
     assert convert(pos_sample_game_1) == sample_game_1_output
+    assert convert(pos_puzzle_1) == puzzle_1_output
 
 def test_error():
     with pytest.raises(SystemExit):
