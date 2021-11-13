@@ -53,6 +53,29 @@ puzzle_1_output = "\
 . ♚ . . . . . .\n\
 . . . . . ♝ . ."
 
+pos_clear = "8/8/8/8/8/8/8/8"
+clear_output = "\
+. . . . . . . .\n\
+. . . . . . . .\n\
+. . . . . . . .\n\
+. . . . . . . .\n\
+. . . . . . . .\n\
+. . . . . . . .\n\
+. . . . . . . .\n\
+. . . . . . . ."
+
+pos_queens = "qqqqqqqq/qqqqqqqq/qqqqqqqq/qqqqqqqq/qqqqqqqq/qqqqqqqq/qqqqqqqq/qqqqqqqq"
+queens_output = "\
+♕ ♕ ♕ ♕ ♕ ♕ ♕ ♕\n\
+♕ ♕ ♕ ♕ ♕ ♕ ♕ ♕\n\
+♕ ♕ ♕ ♕ ♕ ♕ ♕ ♕\n\
+♕ ♕ ♕ ♕ ♕ ♕ ♕ ♕\n\
+♕ ♕ ♕ ♕ ♕ ♕ ♕ ♕\n\
+♕ ♕ ♕ ♕ ♕ ♕ ♕ ♕\n\
+♕ ♕ ♕ ♕ ♕ ♕ ♕ ♕\n\
+♕ ♕ ♕ ♕ ♕ ♕ ♕ ♕"
+
+
 # Invalid formatted FEN
 pos_invalid = "rnbqkbnr/pppmpppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1"
 
@@ -68,6 +91,10 @@ def test_inprogress():
 
 def test_puzzles():
     assert convert(pos_puzzle_1) == puzzle_1_output
+
+def test_weird():
+    assert convert(pos_clear) == clear_output
+    assert convert(pos_queens) == queens_output
 
 def test_error():
     with pytest.raises(SystemExit):
