@@ -45,12 +45,16 @@ def convert(fen):
             output += "."
             lastChar = "."
         else:
-            newChar = pieces[char]
-            # add spaces only between valid pieces
-            if (lastChar != None) and (lastChar in validPieces) and (newChar in validPieces):
-                output += " "
-            output += newChar
-            lastChar = newChar
+            try:
+                newChar = pieces[char]
+                # add spaces only between valid pieces
+                if (lastChar != None) and (lastChar in validPieces) and (newChar in validPieces):
+                    output += " "
+                output += newChar
+                lastChar = newChar
+            except:
+                print("Improperly formatted FEN")
+                sys.exit(1)
     return output
 
 def main():
@@ -63,7 +67,7 @@ def main():
         fen = sys.argv[1]
     else:
         print("Requires FEN as parameter")
-        sys.exit()
+        sys.exit(1)
     print(convert(fen))
 
 if __name__ == "__main__":
