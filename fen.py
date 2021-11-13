@@ -5,34 +5,6 @@
 
 import sys
 
-# Dictionary for switcher-mapping
-def p():
-    return
-def r():
-    return
-def n():
-    return
-def b():
-    return
-def q():
-    return
-def k():
-    return
-def P():
-    return
-def R():
-    return
-def N():
-    return
-def B():
-    return
-def Q():
-    return
-def K():
-    return
-def default():
-    return ""
-
 pieces = {
     "p": "♙ ",
     "r": "♖ ",
