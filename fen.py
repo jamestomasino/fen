@@ -32,6 +32,9 @@ validPieces = "♙♖♘♗♕♔♟♜♞♝♛♚."
 validNum = "12345678"
 
 def convert(fen):
+    if len(fen) < 1:
+        print("Improperly formatted FEN")
+        raise SystemExit(1)
     output = ""
     lastChar = None
     for char in fen:
@@ -54,7 +57,7 @@ def convert(fen):
                 lastChar = newChar
             except:
                 print("Improperly formatted FEN")
-                sys.exit(1)
+                raise SystemExit(1)
     return output
 
 def main():
@@ -67,7 +70,7 @@ def main():
         fen = sys.argv[1]
     else:
         print("Requires FEN as parameter")
-        sys.exit(1)
+        raise SystemExit(1)
     print(convert(fen))
 
 if __name__ == "__main__":
