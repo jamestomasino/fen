@@ -20,34 +20,41 @@ pieces = {
     "K": "♚",
     "/": "\n"
 }
-validPieces = "♙♖♘♗♕♔♟♜♞♝♛♚."
-validNum = "12345678"
+valid_s = "♙♖♘♗♕♔♟♜♞♝♛♚."
+valid_n = "12345678"
 
 def convert(fen):
+    # if empty data, invalid
     if len(fen) < 1:
         print("Improperly formatted FEN")
         raise SystemExit(1)
+
     output = ""
-    lastChar = None
+    prev = None
+
     for char in fen:
+        # break in FEN ends position setup
         if (char == " "):
             break
-        if (char in validNum):
-            if (lastChar != None) and (lastChar in validPieces):
+        # handle n spaces
+        if (char in valid_n):
+            if (prev != None) and (prev in valid_s):
                 output += " "
             for x in range(int(char) - 1):
                output += ". "
             output += "."
-            lastChar = "."
+            prev = "."
+        # handle all valid character pieces
         else:
             try:
                 newChar = pieces[char]
-                # add spaces only between valid pieces
-                if (lastChar != None) and (lastChar in validPieces) and (newChar in validPieces):
+                # add spaces between piece positions (not beginning or EOL)
+                if (prev != None) and (prev in valid_s) and (newChar in valid_s):
                     output += " "
                 output += newChar
-                lastChar = newChar
+                prev = newChar
             except:
+                # if we encounter an unhandled character the FEN must be bad
                 print("Improperly formatted FEN")
                 raise SystemExit(1)
     return output
