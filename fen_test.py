@@ -61,8 +61,12 @@ pos_empty = ""
 
 def test_start():
     assert convert(pos_start) == start_output
+
+def test_inprogress():
     assert convert(pos_e4) == e4_output
     assert convert(pos_sample_game_1) == sample_game_1_output
+
+def test_puzzles():
     assert convert(pos_puzzle_1) == puzzle_1_output
 
 def test_error():
