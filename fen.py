@@ -25,7 +25,8 @@ pieces = {
     "5": ". . . . . ",
     "6": ". . . . . . ",
     "7": ". . . . . . . ",
-    "8": ". . . . . . . . "
+    "8": ". . . . . . . . ",
+    "/": "\n"
 }
 
 def convert(fen):
@@ -33,8 +34,6 @@ def convert(fen):
     for char in fen:
         if (char == " "):
             break
-        if (char == "/"):
-            output += "\n"
         else:
             output += pieces[char]
     return output
