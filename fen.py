@@ -57,15 +57,15 @@ pieces = {
 }
 
 def convert(fen):
+    output = ""
     for char in fen:
         if (char == " "):
             break
         if (char == "/"):
-            sys.stdout.write("\n")
+            output += "\n"
         else:
-            sys.stdout.write(pieces[char])
-    sys.stdout.write("\n")
-    sys.stdout.flush()
+            output += pieces[char]
+    return output
 
 def main():
     # Read standard in as one big string
@@ -78,7 +78,7 @@ def main():
     else:
         print("Requires FEN as parameter")
         sys.exit()
-    convert(fen)
+    print(convert(fen))
 
 if __name__ == "__main__":
     main()
